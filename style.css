@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+}
+
+nav h1 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+body {
+    background-color:brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://www.jonesday.com/-/media/files/publications/2019/05/when-coding-is-criminal/when-coding-is-criminal.jpg?rev=7daa2e80878c4c119b1b3cf1d5864271&h=800&w=1600&la=en&hash=D199BFB81E339067A687CA8DCE856940);
+}
+
+.start_button {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start_button button {
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.quiz {
+    width: 500px;
+    height: 440px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    justify-content: center;
+    display: none;
+}
+
+.heading {
+    width: 100%;
+    padding: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+#options {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.option {
+    width: 100%;
+    padding: 20px;
+    background-color: #00000021;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#question_text {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#result {
+    display: none;
+}
+
+#next {
+    padding: 10px 30px;
+    background-color: rgb(98, 98, 255);
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.397);
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.295);
+}
+
+#result {
+    display: flex;
+    align-items: middle;
+    justify-content: center;
+    text-align: center;
+    width: 500px;
+    height: 350px;
+    border-radius: 30px;
+    background-color: #fff;
+    display: none;
+}
+
+.signUp {
+    width: 300px;
+    height: 450px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.login {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.login h1 {
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.signUp h1 {
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+}
+
+.form input {
+    padding: 10px 30px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #464646;
+    border: 1px solid #ccc;
+    outline: none
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90px;
+}
+
+.link-button button {
+    padding: 10px 30px;
+    background-color:red;
+    color: #fff;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    transition: 0.5s;
+    margin: 10px;
+}
+
+.link-button button:hover {
+    background-color: #fff;
+    border: 1px solid blue;
+    color: blue;
+}
+
+.link-button a {
+    text-decoration: none;
+    color: #5e5e5e;
+}
+
+.link-button a:hover {
+    text-decoration: underline;
+}
+
+#result #name-show {
+    width: 100%;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.grade-result-score {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+    padding: 30px 50px;
+}
+
+.grade-result-score h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.grade-result-score h1 {
+    font-size: 40px;
+    margin: 5px;
+    font-weight: 500;
+}
+
+.green-color {
+    color: green;
+}
+
+#grade {
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.yellow-color {
+    color: yellow;
+}
+
+.red-color {
+    color: red;
+}
+
+#congrats {
+    font-size: 20px;
+    color: green;
+}
+
+#popper {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    display: none;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+#popper-2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    display: none;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: rotate(270deg);
+}

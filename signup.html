@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+</head>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+    body {
+        display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ background-size :cover ;
+  background-image: url(https://www.jonesday.com/-/media/files/publications/2019/05/when-coding-is-criminal/when-coding-is-criminal.jpg?rev=7daa2e80878c4c119b1b3cf1d5864271&h=800&w=1600&la=en&hash=D199BFB81E339067A687CA8DCE856940)
+    }  
+
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-left: 100px;
+        background-color: black;
+        
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        margin-bottom: 10px;
+        padding: 10px;
+        margin: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+       
+        
+    }
+    #jerry{
+        width: 150px;
+        height: 170px;
+        float: left;
+        background-repeat: no-repeat;
+        /* margin-left: 50px; */
+        background-size: cover;
+    }
+    
+    
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    #signup{
+        position: absolute;
+        width: 70px;
+        /* height: 30px; */
+  background-color: black; 
+  color: white; 
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin-left: 200px;
+  border-radius: 4px;
+  /* box-shadow: 0 15px 35px rgba(0,0,0,9); */
+  cursor: pointer;
+  background-size: 100px;
+    }
+    #signup:hover{
+        scale: 1.1;
+        
+
+    }
+    #btn{
+        position: absolute;
+  width: 70px;
+  background-color: black; 
+  color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin-left: 300px;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+  cursor: pointer;
+    }
+
+    #btn:hover{
+        scale: 1.1;
+        
+
+    }
+    #bt1{
+        position: relative;
+  width: 150px;
+  background:black;
+  /* text-align: center; */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 5px 7.5px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+   color: #fff;
+  font-weight: 200;
+  border-radius: 10px;
+    }
+    #bt1:hover{
+        scale: 1.1;
+
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 id="bt1">Signup</h1>
+        <img src="./sahalfaiz_edited.jpg" id="jerry" alt="">
+        <!-- <form id="signupForm"> -->
+        <input type="text" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="btn">Sign Up</button>
+        <button id="signup">login</button>
+        <!-- </form> -->
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+        import { getFirestore,addDoc,collection } from "https://www.gstatic.com/firebasejs/10.0.0/firestore-auth.js";
+
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products 
+        const firebaseConfig = {
+            apiKey: "AIzaSyBZmylPQS0jMum6soiqC8AhqG8mMT6iiOQ",
+            authDomain: "login-pages-d1f04.firebaseapp.com",
+            projectId: "login-pages-d1f04",
+            storageBucket: "login-pages-d1f04.appspot.com",
+            messagingSenderId: "858252292503",
+            appId: "1:858252292503:web:ad57c1f231883b6c7994d2"
+        };
+
+        // Initialize Firebase
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click",async () => {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Add a new document in collection "cities"
+await addDoc(collection(db, "contacts"), {
+ 
+  password: password,
+  email: email,
+});
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    window.location.href = "./login.html"
+                    console.log("user", user)
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    console.log(errorMessage, "errorMessage");
+                    console.log(errorCode, "errorCode");
+                });
+alert("user added")
+        })
+
+
+    </script>
+
+</body>
+
+</html>
